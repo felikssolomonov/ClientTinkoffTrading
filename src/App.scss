@@ -1,0 +1,52 @@
+.App {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: #ccf4ff;
+}
+
+.profile-info-currencies {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  background: rgb(216, 255, 126);
+
+  & .profile-info-currency {
+    background: rgb(255, 126, 126);
+    padding: 1px 5px;
+    border-radius: 5px;
+    margin: 10px;
+  }
+}
+
+.profile-info-portfolio {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  background: rgb(216, 255, 126);
+
+  & .profile-info-currency {
+    background: rgb(255, 126, 126);
+    width: 200px;
+    padding: 1px 5px;
+    border-radius: 5px;
+    margin: 0 10px 10px 10px;
+  }
+}
+
+.get-profile-info-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 160px;
+  border-radius: 15px;
+  font-size: 12px;
+  background: rgb(255, 197, 126);
+  cursor: pointer;
+  margin: 10px 0 0 5px;
+}
