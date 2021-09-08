@@ -1,0 +1,120 @@
+.candles-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  background-color: lightblue;
+}
+
+.candles-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  height: 58px;
+  margin-right: 10px;
+}
+
+.candles-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+}
+
+.candles-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 24px;
+  font-size: 13px;
+  padding: 0 3px 0 0;
+}
+
+.candles-interval-select {
+  height: 24px;
+  width: 70px;
+  cursor: pointer;
+}
+
+.candles-interval-date {
+  height: 24px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.candles-interval-ticker {
+  height: 24px;
+  width: 60px;
+}
+
+.candles-button {
+  display: flex;
+  align-self: flex-end;
+  flex-direction: column;
+  justify-content: center;
+  height: 24px;
+  font-size: 13px;
+  margin-right: 10px;
+  border-radius: 4px;
+  padding: 0 3px 0 7px;
+  background-color: lightseagreen;
+  cursor: pointer;
+}
+
+.candles-button-disabled {
+  opacity: 0.3;
+  cursor: progress;
+}
+
+.candles-loading {
+  width: 100%;
+  cursor: progress;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  -webkit-animation: scale-up-top 0.8s 0.8s infinite alternate-reverse both;
+  animation: scale-up-top 0.8s 0.8s infinite alternate-reverse both;
+}
+
+@-webkit-keyframes scale-up-top {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+  }
+}
+@keyframes scale-up-top {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+  }
+}
+
+.candles-chart {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  width: 96%;
+  margin: 12px auto;
+  padding: 10px;
+  background-color: lightsteelblue;
+}

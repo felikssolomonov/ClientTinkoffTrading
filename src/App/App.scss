@@ -1,0 +1,37 @@
+.App {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: bisque;
+}
+
+.hide-info-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: lightpink;
+
+  span {
+    font-size: 13px;
+    margin: 10px auto;
+    cursor: pointer;
+  }
+}
+
+// .profile-info-portfolio {
+//   position: relative;
+//   display: flex;
+//   flex-direction: column;
+//   margin-top: 20px;
+//   background: rgb(216, 255, 126);
+
+//   & .profile-info-currency {
+//     background: rgb(255, 126, 126);
+//     width: 200px;
+//     padding: 1px 5px;
+//     border-radius: 5px;
+//     margin: 0 10px 10px 10px;
+//   }
+// }
