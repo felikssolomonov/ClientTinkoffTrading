@@ -63,50 +63,6 @@
   cursor: pointer;
 }
 
-.candles-button-disabled {
-  opacity: 0.3;
-  cursor: progress;
-}
-
-.candles-loading {
-  width: 100%;
-  cursor: progress;
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  -webkit-animation: scale-up-top 0.8s 0.8s infinite alternate-reverse both;
-  animation: scale-up-top 0.8s 0.8s infinite alternate-reverse both;
-}
-
-@-webkit-keyframes scale-up-top {
-  0% {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-transform-origin: 50% 0;
-    transform-origin: 50% 0;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-transform-origin: 50% 0;
-    transform-origin: 50% 0;
-  }
-}
-@keyframes scale-up-top {
-  0% {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-transform-origin: 50% 0;
-    transform-origin: 50% 0;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-transform-origin: 50% 0;
-    transform-origin: 50% 0;
-  }
-}
-
 .candles-chart {
   position: relative;
   display: flex;

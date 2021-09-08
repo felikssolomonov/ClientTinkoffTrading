@@ -1,7 +1,24 @@
 .currencies-container {
   position: relative;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.currencies-load-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+}
+
+.currencies-info-box {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  width: 100%;
   padding: 10px;
 }
 

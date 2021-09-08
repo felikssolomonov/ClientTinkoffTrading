@@ -10,13 +10,20 @@ const axiosInstance = axios.create({
 });
 
 export const requestServer = {
-    getCurrencies: async () => {
-        try {
-            const response = await axiosInstance.get("/");
-            return response.data.currency.currencies;
-        } catch (error: any) {
-            return error;
-        }
+    getCurrencies: (): Promise<Array<any>> => {
+        return new Promise((resolve, reject) => {
+            axiosInstance.get("/")
+                .then(response => {
+                    if (response.status !== 200) {
+                        reject(response?.statusText as string);
+                    }
+                    resolve(response.data.currency.currencies as Array<any>);
+                })
+                .catch(error => {
+                    console.log(error.response.statusText);
+                    reject(error?.response?.statusText as string);
+                });
+        });
     },
     getPortfolio: async () => {
         try {

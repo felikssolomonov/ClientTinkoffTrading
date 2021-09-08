@@ -95,11 +95,11 @@ const Candles = () => {
                     </div>
                 </div>
 
-                <div className={"candles-button" + (loading ? " candles-button-disabled" : "")}
+                <div className={"candles-button" + (loading ? " button-disabled" : "")}
                     onClick={onGetCandles}
                 >{"Получить свечи"}</div>
             </div>
-            {loading && <span className={"candles-loading"}>{"loading"}</span>}
+            {loading && <span className={"loading"}>{"loading"}</span>}
             {candleError && <span style={{
                 color: "red"
             }}>{candleError}</span>}

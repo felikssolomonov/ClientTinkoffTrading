@@ -8,13 +8,14 @@ interface AuthProps {
 }
 
 export interface ContextType {
-    getCurrencies: () => void;
+    getCurrencies: () => Promise<unknown>;
     getPortfolio: () => void;
     getCandles: (data: CandleRequestType) => Promise<unknown>;
     currencies: Array<any> | null;
     portfolio: Array<any> | null;
     candles: Array<CandleSeriesType> | null;
     candleError: string | null;
+    currenciesError: string | null;
     interval: intervalType;
     dateFrom: string;
     dateTo: string;
@@ -26,13 +27,14 @@ export interface ContextType {
 }
 
 export const AppContext = createContext<ContextType>({
-    getCurrencies: () => { },
+    getCurrencies: () => { return new Promise(() => { }) },
     getPortfolio: () => { },
     getCandles: () => { return new Promise(() => { }) },
     currencies: null,
     portfolio: null,
     candles: null,
     candleError: null,
+    currenciesError: null,
     interval: intervalType["5min"],
     dateFrom: moment().format('YYYY-MM-DDTHH:mm'),
     dateTo: moment().format('YYYY-MM-DDTHH:mm'),
@@ -47,6 +49,7 @@ export const useApp = (): ContextType => useContext(AppContext);
 
 const AppProvider = ({ children }: AuthProps) => {
     const [currencies, setCurrencies] = useState<Array<any> | null>(null);
+    const [currenciesError, setCurrenciesError] = useState<string | null>(null);
     const [portfolio, setPortfolio] = useState<Array<any> | null>(null);
     const [candles, setCandles] = useState<Array<CandleSeriesType> | null>(null);
     const [candleError, setCandleError] = useState<string | null>(null);
@@ -56,9 +59,20 @@ const AppProvider = ({ children }: AuthProps) => {
     const [dateTo, setDateTo] = useState<string>(moment().format('YYYY-MM-DDTHH:mm'));
     const [ticker, setTicker] = useState<string>("TRUR");
 
-    const getCurrencies = useCallback(async () => {
-        const currencies = await requestServer.getCurrencies();
-        setCurrencies(currencies);
+    const getCurrencies = useCallback((): Promise<unknown> => {
+        return new Promise((resolve, reject) => {
+            requestServer.getCurrencies()
+                .then((currencies: any[]) => {
+                    setCurrencies(currencies);
+                    setCurrenciesError(null);
+                    // @ts-ignore
+                    resolve();
+                })
+                .catch((error: string) => {
+                    setCurrenciesError(error + "");
+                    reject();
+                });
+        });
     }, []);
 
     const getPortfolio = useCallback(async () => {
@@ -125,6 +139,7 @@ const AppProvider = ({ children }: AuthProps) => {
                 portfolio,
                 candles,
                 candleError,
+                currenciesError,
                 interval,
                 dateFrom,
                 dateTo,
