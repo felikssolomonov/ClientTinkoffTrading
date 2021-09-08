@@ -14,7 +14,7 @@ const Currencies = () => {
                     setLoading(false);
                 });
         }
-    }, [loading]);
+    }, [loading, getCurrencies]);
 
     return (<div className={"currencies-container"}>
         <div className={"currencies-load-box"}>

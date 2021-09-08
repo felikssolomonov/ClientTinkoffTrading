@@ -27,7 +27,7 @@ const Candles = () => {
                     setLoading(false);
                 });
         }
-    }, [ticker, dateFrom, dateTo, interval, loading]);
+    }, [ticker, dateFrom, dateTo, interval, loading, getCandles]);
 
     return (
         <>
